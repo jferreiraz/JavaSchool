@@ -7,8 +7,7 @@ package br.com.visao;
 
 import br.com.entidade.Alunos;
 import br.com.modelo.AlunosDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,29 +110,26 @@ public class FormCalcular extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String vnome = jTnome.getText();
-        double vnota1 = Double.valueOf(jTnota1.getText());
-        double vnota2 = Double.valueOf(jTnota2.getText());
-        
-        Alunos al = new Alunos();
-        AlunosDAO ad = new AlunosDAO();
-        
-        al.setNome(vnome);
-        al.setNota1(vnota1);
-        al.setNota2(vnota2);
-        
-        
-        
-        al.setMedia(al.media());
-        
-        jLmedia.setText(String.valueOf(al.media()));
-        
         try {
-            ad.inserir(al);
-        } catch (Exception ex) {
-            Logger.getLogger(FormCalcular.class.getName()).log(Level.SEVERE, null, ex);
+            String vnome = jTnome.getText();
+            double vnota1 = Double.valueOf(jTnota1.getText());
+            double vnota2 = Double.valueOf(jTnota2.getText());
+
+            Alunos al = new Alunos();
+            AlunosDAO ad = new AlunosDAO();
+
+            al.setNome(vnome);
+            al.setNota1(vnota1);
+            al.setNota2(vnota2);
+            al.setMedia(al.media());
+
+            jLmedia.setText(String.valueOf(al.media()));
+
+            ad.inserirAlunos(al);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormCalcular: " + e.getMessage());
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

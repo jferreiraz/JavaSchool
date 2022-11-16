@@ -168,31 +168,29 @@ public class FormLogin extends javax.swing.JFrame {
             ResultSet rs = ud.autenticacaoUsuario(l);
 
             if (rs.next()) {
-                fh.setVisible(true);
                 dispose();
+                fh.setVisible(true);
+
                 l.setUsuario(usuario);
                 l.setSenha(senha);
-                JOptionPane.showMessageDialog(null, "Sessão iniciado com admin de usuario: " + l.getUsuario());
 
                 ss.setUsuario(usuario);
                 ss.setSenha(senha);
-                    JOptionPane.showMessageDialog(null, ssd.constarSessao(ss));
-                try {
-                    if(ssd.constarSessao(ss)==true){
-                    ssd.validarSessao(ss);
-                    }else if(ssd.constarSessao(ss)==false){
-                    ssd.criarSessao(ss);
-                    }
-                } catch (Exception ex) {
-                    Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
 
+                try {
+                    if (ssd.constarSessao(ss) == true) {
+                        ssd.validarSessao(ss);
+                    } else if (ssd.constarSessao(ss) == false) {
+                        ssd.criarSessao(ss);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Erro FormLogin1: " + e.getMessage());
+                }
             } else if (jTusuario.getText().isEmpty() != true) {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
             }
-
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "FormLogin " + erro);
+            JOptionPane.showMessageDialog(null, "Erro FormLogin2: " + erro);
         }
     }//GEN-LAST:event_jBentrarActionPerformed
 

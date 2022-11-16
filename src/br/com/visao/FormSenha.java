@@ -9,8 +9,6 @@ import br.com.entidade.Login;
 import br.com.entidade.Sessao;
 import br.com.modelo.SessaoDAO;
 import br.com.modelo.UsuarioDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +16,12 @@ import javax.swing.JOptionPane;
  * @author João 1
  */
 public class FormSenha extends javax.swing.JFrame {
+
     SessaoDAO sd = new SessaoDAO();
     Sessao ss = new Sessao();
     Login l = new Login();
     UsuarioDAO ud = new UsuarioDAO();
+
     /**
      * Creates new form FormSenha
      */
@@ -115,21 +115,21 @@ public class FormSenha extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             sd.selecionarSessao(ss);
-            
-            if(jTatual.getText().equals(ss.getSenha()) == false){
-                JOptionPane.showMessageDialog(null,"senha atual incorreta!");
-            } else if(jTnova.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null,"Digite a nova senha!");
-            } else if(jTatual.getText().equals(ss.getSenha())){
+
+            if (jTatual.getText().equals(ss.getSenha()) == false) {
+                JOptionPane.showMessageDialog(null, "senha atual incorreta!");
+            } else if (jTnova.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Digite a nova senha!");
+            } else if (jTatual.getText().equals(ss.getSenha())) {
                 ss.setSenha(jTnova.getText());
                 sd.validarSessao(ss);
-                
+
                 l.setSenha(jTnova.getText());
                 l.setUsuario(ss.getUsuario());
-                ud.editarUsuario(l); 
+                ud.editarUsuario(l);
             }
-        } catch (Exception ex) {
-            Logger.getLogger(FormSenha.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormSenha: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

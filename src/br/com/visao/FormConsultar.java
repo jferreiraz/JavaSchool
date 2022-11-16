@@ -15,10 +15,10 @@ import javax.swing.table.DefaultTableModel;
  * @author João 1
  */
 public class FormConsultar extends javax.swing.JFrame {
-    //Login l = new Login();
-    //UsuarioDAO ud = new UsuarioDAO();
+
     Alunos al = new Alunos();
     AlunosDAO ad = new AlunosDAO();
+
     /**
      * Creates new form FormConsultar
      */
@@ -26,17 +26,13 @@ public class FormConsultar extends javax.swing.JFrame {
         initComponents();
         try {
             DefaultTableModel resultadopesque = (DefaultTableModel) jTresultado.getModel();
-                
-                ArrayList<Alunos> als = ad.PesquisarTudo();
-                for (int i = 0; i < als.size(); i++) {
-                    al = als.get(i);
-                    resultadopesque.addRow(new Object[]{al.getId(),al.getNome(),al.getNota1(),al.getNota2(),al.getMedia()});
-                }
-                
-                
-        }
-        catch (Exception e){
-            System.out.println("Erro " + e.getMessage());
+            ArrayList<Alunos> als = ad.pesquisarAlunos();
+            for (int i = 0; i < als.size(); i++) {
+                al = als.get(i);
+                resultadopesque.addRow(new Object[]{al.getId(), al.getNome(), al.getNota1(), al.getNota2(), al.getMedia()});
+            }
+        } catch (Exception e) {
+            System.out.println("Erro FormConsultar: " + e.getMessage());
         }
     }
 

@@ -7,8 +7,6 @@ package br.com.visao;
 
 import br.com.entidade.Alunos;
 import br.com.modelo.AlunosDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +14,9 @@ import javax.swing.JOptionPane;
  * @author João 1
  */
 public class FormDeletar extends javax.swing.JFrame {
+
+    AlunosDAO ad = new AlunosDAO();
+    Alunos al = new Alunos();
 
     /**
      * Creates new form FormDeletar
@@ -99,18 +100,15 @@ public class FormDeletar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String vnome = jTnome.getText();
-        AlunosDAO ad = new AlunosDAO();
-        Alunos al = new Alunos();
-        al.setNome(String.valueOf(vnome));
-
         try {
-            ad.deletar(al);
-            JOptionPane.showMessageDialog(null,"Deletado com sucesso!");
-        } catch (Exception ex) {
-            Logger.getLogger(FormDeletar.class.getName()).log(Level.SEVERE, null, ex);
+            String vnome = jTnome.getText();
+            al.setNome(String.valueOf(vnome));
+            ad.deletarAlunos(al);
+            JOptionPane.showMessageDialog(null, "Deletado com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormDeletar: " + e.getMessage());
         }
-        
+
         jTnome.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -1,6 +1,7 @@
 package br.com.entidade;
 
 public class Alunos {
+
     private int id;
     private String nome;
     private double nota1;
@@ -55,12 +56,12 @@ public class Alunos {
     public void setMedia(double media) {
         this.media = media;
     }
-    
-    public double media(){
-        return (this.nota1+this.nota2)/2;
+
+    public double media() {
+        return (this.nota1 + this.nota2) / 2;
     }
-    
-    public double mediaPeso(){
-        return (this.nota1+(this.nota2*2))/3;
+
+    public double mediaPeso() {
+        return (this.nota1 + (this.nota2 * 2)) / 3;
     }
 }

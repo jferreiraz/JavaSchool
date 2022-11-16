@@ -10,22 +10,23 @@ import br.com.entidade.Sessao;
 import br.com.modelo.SessaoDAO;
 import br.com.modelo.UsuarioDAO;
 import javax.swing.JOptionPane;
-import java.lang.Exception;
 
 /**
  *
  * @author João 1
  */
 public class FormHome extends javax.swing.JFrame {
+
     UsuarioDAO ud = new UsuarioDAO();
     Login l = new Login();
     Sessao ss = new Sessao();
     SessaoDAO sd = new SessaoDAO();
+
     /**
      * Creates new form FormHome
      */
     public FormHome() {
-        
+
         initComponents();
     }
 
@@ -301,15 +302,13 @@ public class FormHome extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try{
-            
-        sd.selecionarSessao(ss);
-        jLusuario.setText(ss.getUsuario());  
-        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,"Erro de : " + e.getMessage());
+        try {
+            sd.selecionarSessao(ss);
+            jLusuario.setText(ss.getUsuario());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro validarHome: " + e.getMessage());
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed

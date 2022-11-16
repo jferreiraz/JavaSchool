@@ -1,6 +1,7 @@
 package br.com.entidade;
 
 public class Login {
+
     private int id_usuario;
     private String usuario;
     private String senha;
@@ -55,6 +56,5 @@ public class Login {
     public void setMedia(double media) {
         this.media = media;
     }
-    
-}
 
+}

@@ -7,7 +7,6 @@ package br.com.visao;
 
 import br.com.entidade.Login;
 import br.com.modelo.UsuarioDAO;
-import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,10 +16,11 @@ import javax.swing.JOptionPane;
  * @author João 1
  */
 public class FormRegister extends javax.swing.JFrame {
+
     Login l = new Login();
     UsuarioDAO ud = new UsuarioDAO();
     FormLogin fl = new FormLogin();
-    
+
     /**
      * Creates new form Register
      */
@@ -125,28 +125,26 @@ public class FormRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBregistrarActionPerformed
-        String vusuario = jTusuario.getText();
-        String vsenha = jTsenha.getText();
-
-        if(vusuario.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Campo usuário não foi preenchido.");
-        } else if(vsenha.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Digite sua senha!");
-        } else {
-            JOptionPane.showMessageDialog(null,"Seu cadastro foi realizado com sucesso!");
-
-            l.setUsuario(vusuario);
-            l.setSenha(vsenha);
-
-            jTusuario.setText("");
-            jTsenha.setText("");
-        }
-
         try {
-            ud.inserir(l);
-        } catch (Exception ex) {
-            System.out.println("Erro ao inserir dados.");
-            Logger.getLogger(FormRegister.class.getName()).log(Level.SEVERE, null, ex);
+            String vusuario = jTusuario.getText();
+            String vsenha = jTsenha.getText();
+
+            if (vusuario.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Campo usuário não foi preenchido.");
+            } else if (vsenha.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Digite sua senha!");
+            } else {
+                l.setUsuario(vusuario);
+                l.setSenha(vsenha);
+
+                jTusuario.setText("");
+                jTsenha.setText("");
+                
+                JOptionPane.showMessageDialog(null, "Seu cadastro foi realizado com sucesso!");
+            }
+            ud.inserirUsuario(l);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormCalcular: " + e.getMessage());
         }
     }//GEN-LAST:event_jBregistrarActionPerformed
 

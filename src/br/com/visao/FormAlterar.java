@@ -14,8 +14,10 @@ import javax.swing.JOptionPane;
  * @author João 1
  */
 public class FormAlterar extends javax.swing.JFrame {
+
     AlunosDAO ad = new AlunosDAO();
     Alunos al = new Alunos();
+
     /**
      * Creates new form FormAlterar
      */
@@ -151,46 +153,40 @@ public class FormAlterar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             al.setNome(String.valueOf(jTnome.getText()));
-            ad.PesquisarRegistro(al);
+            ad.pesquisarUmAluno(al);
             jTnota1.setText(String.valueOf(al.getNota1()));
             jTnota2.setText(String.valueOf(al.getNota2()));
-            //jTnome.setEditable(false);
-
-        }
-        catch (Exception e){
-            System.out.println("Erro " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro FormAlterar1:" + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try{
-
+        try {
             al.setNome(String.valueOf(jTnome.getText()));
             al.setNota1(Double.valueOf(jTnota1.getText()));
             al.setNota2(Double.valueOf(jTnota2.getText()));
-            
 
             jTnota1.setText("");
             jTnota2.setText("");
             jTnome.setText("");
             jTnome.requestFocus();
-            
-            if(jCpeso.isSelected()){
+
+            if (jCpeso.isSelected()) {
                 al.setMedia(al.mediaPeso());
                 jLmedia.setText(String.valueOf(al.mediaPeso()));
-                ad.editarAluno(al);
-            }else {
+                ad.editarAlunos(al);
+            } else {
                 al.setMedia(al.media());
                 jLmedia.setText(String.valueOf(al.media()));
-                ad.editarAluno(al);
+                ad.editarAlunos(al);
             }
-            
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,"Erro de : " + e.getMessage());
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormAlterar2: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -1,6 +1,7 @@
 package br.com.entidade;
 
 public class Sessao {
+
     private int id_usuario;
     private String usuario;
     private String senha;
@@ -12,7 +13,7 @@ public class Sessao {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
-    
+
     public String getUsuario() {
         return usuario;
     }
@@ -20,6 +21,7 @@ public class Sessao {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
     public String getSenha() {
         return senha;
     }
@@ -27,5 +29,5 @@ public class Sessao {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 }

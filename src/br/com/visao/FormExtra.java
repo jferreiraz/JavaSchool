@@ -14,8 +14,10 @@ import javax.swing.JOptionPane;
  * @author laboratorio
  */
 public class FormExtra extends javax.swing.JFrame {
+
     AlunosDAO ad = new AlunosDAO();
     Alunos al = new Alunos();
+
     /**
      * Creates new form FormExtra
      */
@@ -175,18 +177,15 @@ public class FormExtra extends javax.swing.JFrame {
 
     private void jBpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBpesquisarActionPerformed
         // TODO add your handling code here:
-        try{
-            if(String.valueOf(jTnome.getText()).isEmpty()){
-                JOptionPane.showMessageDialog(null,"Campo de nome vazio!");
-            }else{
-            al.setNome(String.valueOf(jTnome.getText()));
-            ad.PesquisarRegistro(al);
-            jLpesquisar.setText("Aluno encontrado! Media atual: "+(String.valueOf(al.getMedia())));
-            //jTnome.setEditable(false);
+        try {
+            if (String.valueOf(jTnome.getText()).isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Campo de nome vazio!");
+            } else {
+                al.setNome(String.valueOf(jTnome.getText()));
+                ad.pesquisarUmAluno(al);
+                jLpesquisar.setText("Aluno encontrado! Media atual: " + (String.valueOf(al.getMedia())));
             }
-
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Erro " + e.getMessage());
         }
     }//GEN-LAST:event_jBpesquisarActionPerformed
@@ -198,40 +197,40 @@ public class FormExtra extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{   
+        try {
             double extra;
             double nota;
-            
-            if(String.valueOf(jTextra.getText()).isEmpty()){
-                JOptionPane.showMessageDialog(null,"Campo de pontuação extra vazio!");
-            } else if(String.valueOf(jTnome.getText()).isEmpty()){
-                JOptionPane.showMessageDialog(null,"Campo de nome vazio!");
-            } else if(jRenota1.isSelected()){
+
+            if (String.valueOf(jTextra.getText()).isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Campo de pontuação extra vazio!");
+            } else if (String.valueOf(jTnome.getText()).isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Campo de nome vazio!");
+            } else if (jRenota1.isSelected()) {
                 nota = al.getNota1();
                 extra = Double.valueOf(jTextra.getText());
-                al.setNota1(extra+nota);
+                al.setNota1(extra + nota);
                 al.setMedia(al.media());
                 jLmedia.setText(String.valueOf(al.mediaPeso()));
-                ad.editarAluno(al);
-            } else if(jRenota2.isSelected()){
+                ad.editarAlunos(al);
+            } else if (jRenota2.isSelected()) {
                 nota = al.getNota2();
                 extra = Double.valueOf(jTextra.getText());
-                al.setNota2(extra+nota);
+                al.setNota2(extra + nota);
                 al.setMedia(al.media());
                 jLmedia.setText(String.valueOf(al.mediaPeso()));
-                ad.editarAluno(al);  
-            } else if(jRenota2p.isSelected()){
+                ad.editarAlunos(al);
+            } else if (jRenota2p.isSelected()) {
                 nota = al.getNota2();
                 extra = Double.valueOf(jTextra.getText());
-                al.setNota2(extra+nota);
+                al.setNota2(extra + nota);
                 al.setMedia(al.mediaPeso());
                 jLmedia.setText(String.valueOf(al.mediaPeso()));
-                ad.editarAluno(al);
-            } else if((jRenota2p.isSelected() || jRenota2.isSelected() || jRenota1.isSelected()) != true) {
-                JOptionPane.showMessageDialog(null,"Selecione qual nota será afetada");
+                ad.editarAlunos(al);
+            } else if ((jRenota2p.isSelected() || jRenota2.isSelected() || jRenota1.isSelected()) != true) {
+                JOptionPane.showMessageDialog(null, "Selecione qual nota será afetada");
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,"Erro de : " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro FormExtra : " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
