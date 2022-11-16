@@ -2,13 +2,32 @@ package br.com.modelo;
 
 import br.com.entidade.Sessao;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class SessaoDAO extends DAO {
+    
+    public boolean constarSessao(Sessao ss) {
+        try {
+            abrirBanco();
+            String query = "SELECT * FROM sessao where id_usuario=1";
+            ps = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            ResultSet tr = ps.executeQuery();
+            if(tr.next()==true){
+                return true;
+            }else if(tr.next()==false){
+                return false;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro " + e.getMessage());
+            return false;
+        }
+        return false;
+    }
 
     public void validarSessao(Sessao ss) throws Exception {
         abrirBanco();
-        //JOptionPane.showMessageDialog(null, a.getNome()+ a.getEmail() + a.getIdade());
         String query = "UPDATE sessao set usuario = ?,senha=? where id_usuario = 1";
         ps = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
         ps.setString(1, ss.getUsuario());
@@ -20,7 +39,7 @@ public class SessaoDAO extends DAO {
 
     public void criarSessao(Sessao ss) throws Exception {
         abrirBanco();
-        String query = "INSERT INTO sessao (id_usuario,usuario,senha)" + "values(null,?,?)";
+        String query = "INSERT INTO sessao (id_usuario,usuario,senha)" + "values(1,?,?)";
         ps = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
         ps.setString(1, ss.getUsuario());
         ps.setString(2, ss.getSenha());

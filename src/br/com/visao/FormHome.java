@@ -304,7 +304,6 @@ public class FormHome extends javax.swing.JFrame {
          try{
             
         sd.selecionarSessao(ss);
-        JOptionPane.showMessageDialog(null,ss.getUsuario());
         jLusuario.setText(ss.getUsuario());  
         
         }catch(Exception e){

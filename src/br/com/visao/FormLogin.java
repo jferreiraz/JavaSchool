@@ -20,11 +20,13 @@ import javax.swing.JOptionPane;
  * @author João 1
  */
 public class FormLogin extends javax.swing.JFrame {
+
     UsuarioDAO ud = new UsuarioDAO();
     FormHome fh = new FormHome();
     Login l = new Login();
     Sessao ss = new Sessao();
     SessaoDAO ssd = new SessaoDAO();
+
     /**
      * Creates new form Login
      */
@@ -153,7 +155,7 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBentrarActionPerformed
-        try{
+        try {
             String usuario;
             String senha;
 
@@ -165,30 +167,32 @@ public class FormLogin extends javax.swing.JFrame {
 
             ResultSet rs = ud.autenticacaoUsuario(l);
 
-            if(rs.next()){
+            if (rs.next()) {
                 fh.setVisible(true);
                 dispose();
                 l.setUsuario(usuario);
                 l.setSenha(senha);
-                JOptionPane.showMessageDialog(null,"Sessão iniciado com admin de usuario: "+l.getUsuario());
-                
+                JOptionPane.showMessageDialog(null, "Sessão iniciado com admin de usuario: " + l.getUsuario());
+
                 ss.setUsuario(usuario);
                 ss.setSenha(senha);
-                
-                            try {
-                ssd.validarSessao(ss);
-            } catch (Exception ex) {
-                Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                
+                    JOptionPane.showMessageDialog(null, ssd.constarSessao(ss));
+                try {
+                    if(ssd.constarSessao(ss)==true){
+                    ssd.validarSessao(ss);
+                    }else if(ssd.constarSessao(ss)==false){
+                    ssd.criarSessao(ss);
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-            }else if(jTusuario.getText().isEmpty() != true){
+            } else if (jTusuario.getText().isEmpty() != true) {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
             }
-            
 
-        } catch(SQLException erro){
-            JOptionPane.showMessageDialog(null,"FormLogin " + erro);
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "FormLogin " + erro);
         }
     }//GEN-LAST:event_jBentrarActionPerformed
 
@@ -197,9 +201,9 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jBsairActionPerformed
 
     private void jCsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCsenhaActionPerformed
-        if(jCsenha.isSelected()){
-            jTsenha.setEchoChar((char)0);
-        }else{
+        if (jCsenha.isSelected()) {
+            jTsenha.setEchoChar((char) 0);
+        } else {
             jTsenha.setEchoChar('*');
         }
     }//GEN-LAST:event_jCsenhaActionPerformed

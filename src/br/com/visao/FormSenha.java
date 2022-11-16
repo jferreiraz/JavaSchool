@@ -44,7 +44,6 @@ public class FormSenha extends javax.swing.JFrame {
         jTnova = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLsenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,8 +65,6 @@ public class FormSenha extends javax.swing.JFrame {
             }
         });
 
-        jLsenha.setText("jLabel3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,10 +85,6 @@ public class FormSenha extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTatual, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(183, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLsenha)
-                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,9 +101,7 @@ public class FormSenha extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(32, 32, 32)
-                .addComponent(jLsenha)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,11 +115,8 @@ public class FormSenha extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             sd.selecionarSessao(ss);
-            //jLsenha.setText(ss.getSenha());
-            //jTatual.getText();
             
             if(jTatual.getText().equals(ss.getSenha()) == false){
-                //jLsenha.setText(ss.getSenha());
                 JOptionPane.showMessageDialog(null,"senha atual incorreta!");
             } else if(jTnova.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Digite a nova senha!");
@@ -138,8 +126,7 @@ public class FormSenha extends javax.swing.JFrame {
                 
                 l.setSenha(jTnova.getText());
                 l.setUsuario(ss.getUsuario());
-                ud.editarUsuario(l);
-                
+                ud.editarUsuario(l); 
             }
         } catch (Exception ex) {
             Logger.getLogger(FormSenha.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,7 +173,6 @@ public class FormSenha extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLsenha;
     private javax.swing.JTextField jTatual;
     private javax.swing.JTextField jTnova;
     // End of variables declaration//GEN-END:variables
