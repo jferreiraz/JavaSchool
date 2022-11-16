@@ -175,17 +175,17 @@ public class FormLogin extends javax.swing.JFrame {
                 ss.setUsuario(usuario);
                 ss.setSenha(senha);
                 
+                            try {
+                ssd.validarSessao(ss);
+            } catch (Exception ex) {
+                Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 
 
             }else if(jTusuario.getText().isEmpty() != true){
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
             }
             
-            try {
-                ssd.validarSessao(ss);
-            } catch (Exception ex) {
-                Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
         } catch(SQLException erro){
             JOptionPane.showMessageDialog(null,"FormLogin " + erro);

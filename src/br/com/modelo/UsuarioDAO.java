@@ -134,18 +134,16 @@ public class UsuarioDAO extends DAO {
         }
         return ls;
     }
-    
+    */
     public void editarUsuario(Login l) throws Exception {
         abrirBanco();
         
-        String query = "UPDATE usuario set usuario = ?, senha = ?, email = ? where id_usuario = ?";
+        String query = "UPDATE usuario set senha = ? where usuario = ?";
         ps = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
-        ps.setString(1, l.getUsuario());
-        ps.setString(2, l.getSenha());
-        ps.setString(3, l.getEmail());
-        ps.setInt(4, l.getId_usuario());
+        ps.setString(1, l.getSenha());
+        ps.setString(2, l.getUsuario());
         ps.executeUpdate();
         JOptionPane.showMessageDialog(null, "Usuario Alterado com sucesso!");
         fecharBanco();
-    }*/
+    }
 }
