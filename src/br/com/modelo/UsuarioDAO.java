@@ -45,7 +45,7 @@ public class UsuarioDAO extends DAO {
             ps.setString(1, l.getSenha());
             ps.setString(2, l.getUsuario());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Usuario Alterado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Dados atualizados com sucesso!");
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro editarUsuario: " + e.getMessage());

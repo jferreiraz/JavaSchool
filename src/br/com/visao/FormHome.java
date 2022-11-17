@@ -47,10 +47,10 @@ public class FormHome extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLusuario1 = new javax.swing.JLabel();
         jLusuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBvalidar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -60,9 +60,11 @@ public class FormHome extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         jMenu4.setText("File");
         jMenuBar2.add(jMenu4);
@@ -77,28 +79,40 @@ public class FormHome extends javax.swing.JFrame {
         jMenuBar3.add(jMenu7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(153, 0, 255));
+        setBackground(new java.awt.Color(0, 0, 0));
         setBounds(new java.awt.Rectangle(1, 1, 1, 10));
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPanel1KeyPressed(evt);
             }
         });
 
-        jLabel1.setText("Gerenciador de alunos");
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel1.setText("Gerenciador de notas");
 
-        jLabel2.setText("Usuário:");
+        jLusuario1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLusuario1.setText("Usuário:");
 
+        jLusuario.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLusuario.setText("-------");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/img/iconeEscola.png"))); // NOI18N
 
-        jButton1.setText("Validar usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBvalidar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jBvalidar.setText("Validar usuario");
+        jBvalidar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBvalidarMouseClicked(evt);
+            }
+        });
+        jBvalidar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBvalidarActionPerformed(evt);
             }
         });
 
@@ -107,50 +121,61 @@ public class FormHome extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(jLusuario1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(172, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBvalidar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(222, 222, 222))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(193, 193, 193))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(170, 170, 170))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(61, 61, 61)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(57, 57, 57))
+                .addGap(60, 60, 60)
+                .addComponent(jBvalidar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(155, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLusuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43))))
         );
+
+        jLusuario1.setVisible(false);
+        jLusuario.setVisible(false);
 
         jMenuBar1.setBackground(new java.awt.Color(200, 200, 200));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(640, 65));
 
         jMenu1.setBackground(new java.awt.Color(200, 200, 200));
         jMenu1.setForeground(new java.awt.Color(0, 0, 102));
         jMenu1.setText("Consultar Banco");
-        jMenu1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenu1.setFocusable(false);
+        jMenu1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jMenu1.setMargin(new java.awt.Insets(0, 20, 0, 20));
 
+        jMenuItem1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem1.setText("Consultar notas");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,10 +189,13 @@ public class FormHome extends javax.swing.JFrame {
         jMenu2.setBackground(new java.awt.Color(200, 200, 200));
         jMenu2.setForeground(new java.awt.Color(0, 0, 102));
         jMenu2.setText("Calcular notas");
-        jMenu2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenu2.setFocusable(false);
+        jMenu2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu2.setMargin(new java.awt.Insets(0, 20, 0, 20));
 
+        jMenuItem2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem2.setText("Cadastrar nova media");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,6 +204,7 @@ public class FormHome extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem3.setText("Alterar notas");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +213,7 @@ public class FormHome extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem4.setText("Deletar alunos");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +222,7 @@ public class FormHome extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem5.setText("Adicionar ponto extra");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,27 +233,14 @@ public class FormHome extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setBackground(new java.awt.Color(200, 200, 200));
+        jMenu3.setBackground(new java.awt.Color(255, 255, 255));
         jMenu3.setForeground(new java.awt.Color(0, 0, 102));
         jMenu3.setText("Configurações");
-        jMenu3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenu3.setAlignmentX(22.0F);
+        jMenu3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jMenu3.setMargin(new java.awt.Insets(0, 20, 0, 20));
 
-        jMenuItem6.setText("Encerrar sessão");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem6);
-
-        jMenuItem7.setText("Fechar aplicativo");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem7);
-
+        jMenuItem8.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jMenuItem8.setText("Alterar senha");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +249,44 @@ public class FormHome extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem8);
 
+        jMenuItem6.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jMenuItem6.setText("Encerrar sessão");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jMenuItem7.setText("Fechar aplicativo");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
         jMenuBar1.add(jMenu3);
+
+        jMenu9.setDelay(100000);
+        jMenu9.setMargin(new java.awt.Insets(0, 100, 0, 0));
+        jMenuBar1.add(jMenu9);
+
+        jMenu8.setText("X");
+        jMenu8.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jMenu8.setMargin(new java.awt.Insets(0, 15, 0, 15));
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
 
@@ -239,17 +294,15 @@ public class FormHome extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(632, 648));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -300,7 +353,7 @@ public class FormHome extends javax.swing.JFrame {
         fs.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBvalidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBvalidarActionPerformed
         // TODO add your handling code here:
         try {
             sd.selecionarSessao(ss);
@@ -309,11 +362,27 @@ public class FormHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro validarHome: " + e.getMessage());
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBvalidarActionPerformed
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jBvalidarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBvalidarMouseClicked
+        // TODO add your handling code here:
+        jLusuario1.setVisible(true);
+        jLusuario.setVisible(true);
+    }//GEN-LAST:event_jBvalidarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -351,11 +420,11 @@ public class FormHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBvalidar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLusuario;
+    private javax.swing.JLabel jLusuario1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -363,6 +432,8 @@ public class FormHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
