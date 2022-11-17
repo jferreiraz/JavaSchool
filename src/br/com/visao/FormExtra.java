@@ -294,7 +294,7 @@ public class FormExtra extends javax.swing.JFrame {
                 extra = Double.valueOf(jTextra.getText());
                 al.setNota1(extra + nota);
                 al.setMedia(al.media());
-                jLmedia.setText(String.valueOf(al.mediaPeso()));
+                jLmedia.setText(String.valueOf(al.media()));
                 ad.editarAlunos(al);
             } else if (jRenota2.isSelected()) {
                 nota = al.getNota2();

@@ -196,6 +196,9 @@ public class FormSenha extends javax.swing.JFrame {
                 l.setSenha(jTnova.getText());
                 l.setUsuario(ss.getUsuario());
                 ud.editarUsuario(l);
+                
+                jTatual.setText("");
+                jTnova.setText("");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro FormSenha: " + e.getMessage());
