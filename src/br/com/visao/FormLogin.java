@@ -75,15 +75,18 @@ public class FormLogin extends javax.swing.JFrame {
         jBentrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jBentrar.setForeground(new java.awt.Color(0, 0, 51));
         jBentrar.setText("Entrar");
+        jBentrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jBentrar.setBorderPainted(false);
         jBentrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBentrarActionPerformed(evt);
             }
         });
 
-        jTusuario.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jTusuario.setFont(new java.awt.Font("Verdana", 0, 14));
         jTusuario.setToolTipText("");
         jTusuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jTusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTusuario.setMargin(new java.awt.Insets(20, 20, 20, 20));
         jTusuario.setMinimumSize(new java.awt.Dimension(20, 20));
         jTusuario.setPreferredSize(new java.awt.Dimension(20, 20));
@@ -109,7 +112,7 @@ public class FormLogin extends javax.swing.JFrame {
         jBcadastrar.setBackground(new java.awt.Color(255, 240, 250));
         jBcadastrar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jBcadastrar.setText("Cadastrar");
-        jBcadastrar.setBorder(null);
+        jBcadastrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jBcadastrar.setBorderPainted(false);
         jBcadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +143,7 @@ public class FormLogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addComponent(jBcadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +162,7 @@ public class FormLogin extends javax.swing.JFrame {
                 .addComponent(jBentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBcadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -178,8 +181,7 @@ public class FormLogin extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,11 +196,9 @@ public class FormLogin extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(197, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

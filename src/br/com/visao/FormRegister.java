@@ -71,7 +71,7 @@ public class FormRegister extends javax.swing.JFrame {
         jBregistrar.setBackground(new java.awt.Color(255, 255, 255));
         jBregistrar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jBregistrar.setText("Registrar");
-        jBregistrar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jBregistrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jBregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBregistrarActionPerformed(evt);
@@ -83,12 +83,15 @@ public class FormRegister extends javax.swing.JFrame {
         jLabel2.setText("Senha");
 
         jTusuario.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jTusuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuário");
+        jLabel1.setToolTipText("");
 
         jTsenha.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jTsenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jTsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTsenhaActionPerformed(evt);
